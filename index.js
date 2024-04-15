@@ -7,7 +7,6 @@ const rout = require('./Routing/Route')
 const dat = require('./Data/Data')
 
 const port = process.env.PORT || 9090
-const uri =  'mongodb://localhost:27017/office';
 
 server.use(express.json())
 
@@ -18,10 +17,10 @@ server.use('/middle', dat)
 server.get('/', (req, res) => {
     res.send('hello server')
 })
-
+mongoose.set("strictQuery",false)
 server.listen(port, async () => {
     try {
-        await mongoose.connect(uri, {
+        await mongoose.connect('mongodb://localhost:27017/office', {
             useUnifiedTopology: true,
             useNewUrlParser: true
         })
