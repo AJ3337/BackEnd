@@ -8,6 +8,7 @@ const dat = require('./Data/Data')
 
 const port = process.env.PORT || 9090
 
+
 server.use(express.json())
 
 server.use('/mid', rout)
@@ -20,7 +21,7 @@ server.get('/', (req, res) => {
 mongoose.set("strictQuery",false)
 server.listen(port, async () => {
     try {
-        await mongoose.connect('mongodb://localhost:27017/office', {
+        await mongoose.connect('mongodb+srv://ayushj3069:Ayush%40123@newdatabase.tba7ams.mongodb.net/test', {
             useUnifiedTopology: true,
             useNewUrlParser: true
         })
